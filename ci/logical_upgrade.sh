@@ -39,7 +39,7 @@ DB="testdb"
 
 # set up and start a standby replica
 
-$BIN10/pg_basebackup $SRCCON -D $DEST -R -x
+$BIN10/pg_basebackup $SRCCON -D $DEST -R -X fetch
 
 sed -i s/9432/9433/ $DEST/postgresql.conf
 
@@ -83,7 +83,7 @@ $BIN10/pglogical_create_subscriber -D $DEST \
 
 # get the replication origin name - pg_upgrade will wipe it out
 
-RONAME=`$BIN10/bin/psql $DSTCON -A -X -t -c "select roname from pg_replication_origin" $DB`
+RONAME=`$BIN10/psql $DSTCON -A -X -t -c "select roname from pg_replication_origin" $DB`
 
 # stop the logical subscriber
 
@@ -103,7 +103,6 @@ cat >> $NDEST/postgresql.conf <<-'EOF'
 	max_replication_slots = 10  # one per node needed on provider node
 	max_wal_senders = 10        # one per node needed on provider node
 	track_commit_timestamp = on
-	wal_keep_segments = 100
 EOF
 
 # upgrade and start the pglogical subscriber
