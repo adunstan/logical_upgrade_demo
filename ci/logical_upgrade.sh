@@ -1,4 +1,6 @@
 
+set -e -x
+
 # test demo of upgrade using pglogical_create_subscriber
 
 # Requirements:
@@ -125,15 +127,3 @@ $BIN10/psql $SRCCON -c "select pglogical.synchronize_sequence('public.pgbench_hi
 # we're looking for a state of "streaming" here
 
 $BIN10/psql $SRCCON -x -c "select * from pg_stat_replication where application_name = 'upgradesub'" $DB
-
-
-
-
-
-
-
-
-
-
-
-
