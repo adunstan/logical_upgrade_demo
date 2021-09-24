@@ -7,5 +7,6 @@ task:
       - useradd -m pgrunner
       - cp ci/logical_upgrade.sh /home/pgrunner
       - chown pgrunner:pgrunner /home/pgrunner/logical_upgrade.sh
+      - su - pgrunner pwd
       - su - pgrunner ./logical_ugrade.sh
 
