@@ -5,5 +5,7 @@ task:
     dockerfile: ci/Dockerfile
   build_script:
       - useradd -m pgrunner
-      - su - pgrunner `pwd`/ci/logical_ugrade.sh
+      - cp ci/logical_upgrade.sh /home/pgrunner
+      - chown pgrunner:pgrunner /home/pgrunner/logical_upgrade.sh
+      - su - pgrunner logical_ugrade.sh
 
