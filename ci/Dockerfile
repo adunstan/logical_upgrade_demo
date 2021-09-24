@@ -1,0 +1,9 @@
+FROM centos:7
+
+RUN yum install -y epel-release
+
+RUN yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+
+RUN yum install -y \
+	postgresql-10 postgresql-10-server pglogical_10 \
+	postgresql-13 postgresql-13-server pglogical_13

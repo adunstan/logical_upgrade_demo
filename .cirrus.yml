@@ -1,0 +1,8 @@
+
+task:
+  name: logical_upgrade_demo
+  container:
+    dockerfile: ci/Dockerfile
+  build_script:
+      - sh ci/logical_upgrade.sh
+
