@@ -8,5 +8,5 @@ task:
       - cp ci/logical_upgrade.sh /home/pgrunner
       - chown pgrunner:pgrunner /home/pgrunner/logical_upgrade.sh
       - su - pgrunner -c '/usr/bin/readlink -f .'
-      - su - pgrunner ./logical_ugrade.sh
+      - su - pgrunner ./logical_upgrade.sh
 
