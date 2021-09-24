@@ -1,4 +1,4 @@
->
+
 # test demo of upgrade using pglogical_create_subscriber
 
 # Requirements:
