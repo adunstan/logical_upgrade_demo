@@ -3,7 +3,7 @@ task:
   name: logical_upgrade_demo
   container:
     dockerfile: ci/Dockerfile
-  build_script:
+  test_script:
       - useradd -s /bin/bash -m pgrunner
       - cp logical_upgrade.sh /home/pgrunner
       - chown pgrunner:pgrunner /home/pgrunner/logical_upgrade.sh
